@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               <div className="w-full border-2 max-w-3xl mb-2 mx-auto p-6 bg-card rounded-md shadow relative">
                   <div className="flex justify-between items-start">
                       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-                          Soma
+                          Trivia
                       </h1>
                       <ModeToggle/>
                   </div>
