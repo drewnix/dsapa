@@ -11,7 +11,19 @@ import {
 } from "@/components/ui/dialog";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
-function FlashcardDialog({ open, onOpenChange, flashcard }) {
+interface Flashcard {
+  topic: string;
+  title: string;
+  description: string;
+  answer: string;
+}
+
+interface FlashcardDialogProps {
+  open: boolean;  onOpenChange: (open: boolean) => void;
+  flashcard: Flashcard | null;
+}
+
+function FlashcardDialog({ open, onOpenChange, flashcard }: FlashcardDialogProps) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const flipCard = () => {

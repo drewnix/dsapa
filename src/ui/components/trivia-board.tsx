@@ -8,35 +8,27 @@ const amounts = [200, 400, 600, 800, 1000];
 
 function TriviaBoard() {
     // const [selectedQuestion, setSelectedQuestion] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
     const [topics, setTopics] = useState(['All'])
     const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
     const [selectedFlashcard, setSelectedFlashcard] = useState(null);
     const [open, setOpen] = useState(false);
 
     const handleCellClick = async (topic: string) => {
-        setIsLoading(true);
         try {
             const flashcard = await getFlashcard(topic);
             setSelectedFlashcard(flashcard);
             setOpen(true);
         } catch (error) {
             console.error("Error fetching flashcard:", error);
-        } finally {
-            setIsLoading(false);
         }
     };
 
     const fetchTopics = async () => {
-        setIsLoading(true); // Start loading
-
         try {
             const data = await getTopics();
             setTopics(['All', ...data]);
         } catch (error) {
             console.error('Error fetching flashcard:', error);
-        } finally {
-            setIsLoading(false); // End loading
         }
     };
 

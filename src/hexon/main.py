@@ -10,9 +10,12 @@ hexon = FastAPI()
 
 # Directory where your React build is located
 react_build_directory = "static"
+next_static_directory = "static/_next"
 
 # Serve Static Files
 hexon.mount("/static", StaticFiles(directory=react_build_directory), name="static")
+hexon.mount("/_next", StaticFiles(directory=next_static_directory), name="next_static")
+
 
 # Set all CORS enabled origins
 if settings.BACKEND_CORS_ORIGINS:
